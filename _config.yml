@@ -6,10 +6,10 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Changwoo
 middle_name:
 last_name: BAE
-# contact_note: >
-#   You can even add a little note about which of these is the best way to reach you.
+contact_note: >
+  Feel free to contact me via email: changwoo.bae@univ-lyon1.fr
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  Hello, welcome to my website. I'm interested in fluid dynamics at interfaces. Feel free to have a look at my research interests and publications.
 footer_text: >
 
 keywords: Changwoo Bae, Drop, Bubble, Interface # add your own keywords or leave empty
@@ -219,7 +219,7 @@ defaults:
   - scope:
       path: "assets"
     values:
-      sitemap: false
+      sitemap: true
 
 sass:
   style: compressed
@@ -262,8 +262,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Bae]
+  first_name: [Changwoo]
 
   style: apa
   locale: en
