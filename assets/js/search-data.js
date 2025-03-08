@@ -451,13 +451,6 @@ ninja.data = [{
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
             },},{
-        id: 'social-email',
-        title: 'email',
-        section: 'Socials',
-        handler: () => {
-          window.open("mailto:%63%68%61%6E%67%77%6F%6F.%62%61%65@%75%6E%69%76-%6C%79%6F%6E.%66%72", "_blank");
-        },
-      },{
         id: 'social-scholar',
         title: 'Google Scholar',
         section: 'Socials',
@@ -470,6 +463,13 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://www.linkedin.com/in/changwoo-charlie-bae-28b2111ab/", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%63%68%61%6E%67%77%6F%6F.%62%61%65@%75%6E%69%76-%6C%79%6F%6E.%66%72", "_blank");
         },
       },{
       id: 'light-theme',
