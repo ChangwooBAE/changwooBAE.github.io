@@ -17,8 +17,9 @@
         {% continue %}
       {% endif %}
       {% assign id = node | split: 'id="' | shift | split: '"' | first %}
-      {% assign title_parts = node | split: '</h' | first | split: '>' %}
-      {% assign title = title_parts[1] | strip_html | strip %}
+      {% assign title_start = node | split: '>' | first | size | plus: 1 %}
+      {% assign title_end = node | split: '</h' | first | size %}
+      {% assign title = node | slice: title_start, title_end | strip_html | strip %}
       {% if level > last_level %}
         {% for i in (last_level..level) %}
           <ul>
