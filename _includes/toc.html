@@ -1,15 +1,15 @@
 {% assign html = include.html %}
-{% assign min_level = include.min_level | default: 2 %}
-{% assign max_level = include.max_level | default: 3 %}
+{% assign min_level = include.min_level | default: 1 %}
+{% assign max_level = include.max_level | default: 6 %}
 {% assign class = include.class | default: 'toc' %}
 
-{% capture toc %}
+{% capture my_toc %}
 <nav class="{{ class }}">
   <ul>
-    {% assign last_level = min_level | minus: 1 %}
+    {% assign last_level = 0 %}
     {% assign nodes = html | split: '<h' %}
     {% for node in nodes %}
-      {% if node == empty %}
+      {% if node == "" %}
         {% continue %}
       {% endif %}
       {% assign level = node | slice: 0, 1 | plus: 0 %}
@@ -17,9 +17,7 @@
         {% continue %}
       {% endif %}
       {% assign id = node | split: 'id="' | shift | split: '"' | first %}
-      {% assign title_start = node | split: '>' | first | size | plus: 1 %}
-      {% assign title_end = node | split: '</h' | first | size %}
-      {% assign title = node | slice: title_start, title_end | strip_html | strip %}
+      {% assign title = node | split: '</h' | first | split: '>' | shift | first | strip_html | strip %}
       {% if level > last_level %}
         {% for i in (last_level..level) %}
           <ul>
@@ -39,4 +37,4 @@
 </nav>
 {% endcapture %}
 
-{{ toc | strip_newlines }} 
+{{ my_toc | strip_newlines }} 
