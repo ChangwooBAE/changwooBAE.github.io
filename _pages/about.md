@@ -29,6 +29,6 @@ latest_posts:
 
 Hello, I am Changwoo Bae, a mechanical engineer and a physicist.
 
-I received my Bachelor's and Master's degrees of Mechanical Engineer in [Soft Interface Laboratory](https://ifluid.khu.ac.kr) at Kyung Hee University advised by Prof. [Choongyeop Lee](https://scholar.google.com/citations?user=4X93y-oAAAAJ&hl=en) in South Korea. Later, I moved to France and received my PhD degree in Physics at [Institut Lumière Matière, Université de Lyon](https://ilm.univ-lyon1.fr) advised by Dr. [Anne-Laure Biance](https://scholar.google.com/citations?user=aIZPs7oAAAAJ&hl=en).
+I received my Bachelor's and Master's degrees of Mechanical Engineer in [Soft Interface Laboratory](https://ifluid.khu.ac.kr) at Kyung Hee University advised by Prof. [Choongyeop Lee](https://scholar.google.com/citations?hl=en&user=4X93y-oAAAAJ) in South Korea. Later, I moved to France and received my PhD degree in Physics at [Institut Lumière Matière, Université de Lyon](https://ilm.univ-lyon1.fr) advised by Dr. [Anne-Laure Biance](https://scholar.google.com/citations?hl=en&user=aIZPs7oAAAAJ).
 
 My primary research focuses on fluid dynamics at interfaces, such as superhydrophilic, superhydrophobic, surfactant laden interfaces, etc.
