@@ -5,9 +5,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>{% if site.title == blank %}{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}{% else %}{{ site.title }}{% endif %}{% if page.title and page.title != "about" %} | {{ page.title }}{% endif %}</title>
-<meta name="author" content="{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}" />
-<meta name="description" content="{{ site.description }}" />
+<title>
+  {% if site.title == blank -%}
+    {{- site.first_name }}
+    {{ site.middle_name }}
+    {{ site.last_name -}}
+  {%- else -%}
+    {{- site.title -}}
+  {%- endif %}
+  {% if page.title and page.title != 'about' %} | {{ page.title }}{% endif %}
+</title>
+<meta name="author" content="{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}">
+<meta name="description" content="{{ site.description }}">
 <link rel="icon" href="{{ '/assets/img/' | append: site.icon | relative_url }}">
 
 <!-- Prevent iOS from requesting touch icons -->

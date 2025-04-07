@@ -5,7 +5,7 @@ title: Curriculum Vitae
 nav: true
 nav_order: 5
 cv_pdf: CV_2025.pdf # you can also use external links here
-description: 
+description:
 toc:
   sidebar: left
 ---
