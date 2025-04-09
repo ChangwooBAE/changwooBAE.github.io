@@ -33,43 +33,172 @@ I received my Bachelor's and Master's degrees of Mechanical Engineer in [Soft In
 
 My primary research focuses on fluid dynamics at interfaces, such as superhydrophilic, superhydrophobic, surfactant laden interfaces, etc.
 
+<div style="margin-top: 8rem;"></div>
+
 ## Research Highlights
 
 <style>
-.research-gif {
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin: 2rem 0 4rem 0;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 2rem;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
   max-width: 100%;
-  height: auto;
-  margin: 2rem 0;
-  display: block;
+  max-height: 80%;
+  object-fit: contain;
+  margin-top: 1rem;
 }
-.research-gif-container {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-.research-gif-title {
+
+.slide-title {
+  margin-bottom: 1rem;
   font-size: 1.2rem;
-  margin-top: 0.5rem;
-  color: #666;
+  font-weight: bold;
+  color: var(--global-theme-color);
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.slide {
+  animation: fadeOut 2s forwards;
+}
+
+.slide.active {
+  animation: fadeIn 2s forwards;
+}
+
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+  z-index: 10;
+}
+
+.slide-nav:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slide-nav.prev {
+  left: 20px;
+}
+
+.slide-nav.next {
+  right: 20px;
 }
 </style>
 
-<div class="research-gif-container">
-  <img class="research-gif rounded z-depth-1" src="{{ '/assets/img/webcover/Rebound.gif' | relative_url }}" alt="Rebound"/>
-  <div class="research-gif-title">Rebound</div>
+<div class="slideshow-container">
+  <button class="slide-nav prev" id="prevButton">❮</button>
+  <button class="slide-nav next" id="nextButton">❯</button>
+  <div class="slide">
+    <div class="slide-title">Rebound of a water drop from oil surface</div>
+    <img src="{{ '/assets/img/webcover/Rebound.gif' | relative_url }}?t=0" alt="Rebound"/>
+  </div>
+  <div class="slide">
+    <div class="slide-title">Rotation of a water drop after bouncing</div>
+    <img src="{{ '/assets/img/webcover/Rotation.gif' | relative_url }}?t=0" alt="Rotation"/>
+  </div>
+  <div class="slide">
+    <div class="slide-title">Reversal motion of a bubble with surfactant concentration</div>
+    <img src="{{ '/assets/img/webcover/bubble_video.gif' | relative_url }}?t=0" alt="Bubble Video"/>
+  </div>
+  <div class="slide">
+    <div class="slide-title">Multiple Bubble</div>
+    <img src="{{ '/assets/img/webcover/multiplebubble.gif' | relative_url }}?t=0" alt="Multiple Bubble"/>
+  </div>
 </div>
 
-<div class="research-gif-container">
-  <img class="research-gif rounded z-depth-1" src="{{ '/assets/img/webcover/Rotation.gif' | relative_url }}" alt="Rotation"/>
-  <div class="research-gif-title">Rotation</div>
-</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
 
-<div class="research-gif-container">
-  <img class="research-gif rounded z-depth-1" src="{{ '/assets/img/webcover/bubble_video.gif' | relative_url }}" alt="Bubble Video"/>
-  <div class="research-gif-title">Bubble Video</div>
-</div>
+  function showSlide(index) {
+    // Hide all slides
+    slides.forEach(slide => {
+      slide.classList.remove('active');
+      const img = slide.querySelector('img');
+      // Force GIF to restart by updating src with timestamp
+      img.src = img.src.split('?')[0] + '?t=' + new Date().getTime();
+    });
+    
+    // Show current slide
+    slides[index].classList.add('active');
+  }
 
-<div class="research-gif-container">
-  <img class="research-gif rounded z-depth-1" src="{{ '/assets/img/webcover/multiplebubble.gif' | relative_url }}" alt="Multiple Bubble"/>
-  <div class="research-gif-title">Multiple Bubble</div>
-</div>
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  // Show first slide immediately
+  showSlide(0);
+
+  // Change slide every 20 seconds
+  let slideInterval = setInterval(nextSlide, 20000);
+
+  // Reset interval when manually changing slides
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 20000);
+  }
+
+  // Add event listeners to buttons
+  prevButton.addEventListener('click', function() {
+    prevSlide();
+    resetInterval();
+  });
+
+  nextButton.addEventListener('click', function() {
+    nextSlide();
+    resetInterval();
+  });
+});
+</script>
 
