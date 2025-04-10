@@ -131,19 +131,19 @@ My primary research focuses on fluid dynamics at interfaces, such as superhydrop
   <button class="slide-nav next" id="nextButton">❯</button>
   <div class="slide">
     <div class="slide-title">Rebound of a water drop from oil surface</div>
-    <img src="{{ site.url | append: '/assets/img/webcover/Rebound.gif' | relative_url }}" alt="Rebound" loading="eager" onerror="this.onerror=null; this.src='{{ site.url | append: '/assets/img/webcover/Rebound.gif' | relative_url }}?t=' + new Date().getTime();"/>
+    <img src="/assets/img/webcover/Rebound.gif" alt="Rebound" loading="eager" onerror="this.onerror=null; this.src='/assets/img/webcover/Rebound.gif?t=' + new Date().getTime();"/>
   </div>
   <div class="slide">
     <div class="slide-title">Rotation of a water drop after bouncing</div>
-    <img src="{{ site.url | append: '/assets/img/webcover/Rotation.gif' | relative_url }}" alt="Rotation" loading="eager" onerror="this.onerror=null; this.src='{{ site.url | append: '/assets/img/webcover/Rotation.gif' | relative_url }}?t=' + new Date().getTime();"/>
+    <img src="/assets/img/webcover/Rotation.gif" alt="Rotation" loading="eager" onerror="this.onerror=null; this.src='/assets/img/webcover/Rotation.gif?t=' + new Date().getTime();"/>
   </div>
   <div class="slide">
     <div class="slide-title">Reversal motion of a bubble with surfactant concentration</div>
-    <img src="{{ site.url | append: '/assets/img/webcover/bubble_video.gif' | relative_url }}" alt="Bubble Video" loading="eager" onerror="this.onerror=null; this.src='{{ site.url | append: '/assets/img/webcover/bubble_video.gif' | relative_url }}?t=' + new Date().getTime();"/>
+    <img src="/assets/img/webcover/bubble_video.gif" alt="Bubble Video" loading="eager" onerror="this.onerror=null; this.src='/assets/img/webcover/bubble_video.gif?t=' + new Date().getTime();"/>
   </div>
   <div class="slide">
     <div class="slide-title">Multiple Bubble</div>
-    <img src="{{ site.url | append: '/assets/img/webcover/multiplebubble.gif' | relative_url }}" alt="Multiple Bubble" loading="eager" onerror="this.onerror=null; this.src='{{ site.url | append: '/assets/img/webcover/multiplebubble.gif' | relative_url }}?t=' + new Date().getTime();"/>
+    <img src="/assets/img/webcover/multiplebubble.gif" alt="Multiple Bubble" loading="eager" onerror="this.onerror=null; this.src='/assets/img/webcover/multiplebubble.gif?t=' + new Date().getTime();"/>
   </div>
 </div>
 
