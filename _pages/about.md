@@ -67,6 +67,7 @@ My primary research focuses on fluid dynamics at interfaces, such as superhydrop
   max-height: 80%;
   object-fit: contain;
   margin-top: 1rem;
+  display: block; /* Ensure image is displayed as block */
 }
 
 .slide-title {
