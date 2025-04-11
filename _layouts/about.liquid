@@ -138,7 +138,7 @@ layout: default
 
     <!-- Research Highlights Section -->
     <h2>Research Highlights</h2>
-    
+
     <!-- Slideshow container -->
     <div class="slideshow-container">
       <!-- Full-width images with number and caption text -->
@@ -188,53 +188,57 @@ layout: default
 
 <!-- Script for slideshow -->
 <script>
-let slideIndex = 0;
-let slideInterval;
+  let slideIndex = 0;
+  let slideInterval;
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-  resetInterval();
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  
-  if (!slides.length) return;
-  
-  if (n >= slides.length) {slideIndex = 0}
-  if (n < 0) {slideIndex = slides.length - 1}
-  
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  
-  slides[slideIndex].style.display = "block";
-}
-
-function startSlideShow() {
-  showSlides(slideIndex);
-  slideInterval = setInterval(function() {
-    slideIndex++;
-    showSlides(slideIndex);
-  }, 5000); // Change image every 5 seconds
-}
-
-function resetInterval() {
-  clearInterval(slideInterval);
-  startSlideShow();
-}
-
-// Pause slideshow when tab is not visible to save resources
-document.addEventListener("visibilitychange", function() {
-  if (document.hidden) {
-    clearInterval(slideInterval);
-  } else {
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides((slideIndex += n));
     resetInterval();
   }
-});
 
-// Start the slideshow when the page loads
-document.addEventListener("DOMContentLoaded", startSlideShow);
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName('mySlides');
+
+    if (!slides.length) return;
+
+    if (n >= slides.length) {
+      slideIndex = 0;
+    }
+    if (n < 0) {
+      slideIndex = slides.length - 1;
+    }
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+
+    slides[slideIndex].style.display = 'block';
+  }
+
+  function startSlideShow() {
+    showSlides(slideIndex);
+    slideInterval = setInterval(function () {
+      slideIndex++;
+      showSlides(slideIndex);
+    }, 5000); // Change image every 5 seconds
+  }
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    startSlideShow();
+  }
+
+  // Pause slideshow when tab is not visible to save resources
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      clearInterval(slideInterval);
+    } else {
+      resetInterval();
+    }
+  });
+
+  // Start the slideshow when the page loads
+  document.addEventListener('DOMContentLoaded', startSlideShow);
 </script>
