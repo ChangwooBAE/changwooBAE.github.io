@@ -3,88 +3,150 @@
   contents:
     - name: Full Name
       value: Changwoo Bae
-    - name: Date of Birth
-      value: 31st October 1991
     - name: Languages
       value: English, Korean
+    - name: Email
+      value: changwoo.bae@univ-lyon1.fr
+    - name: Website
+      value: changwoobae.com
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
+    - title: Ph.D. in Physics
       institution: Institut Lumière Matière, Université de Lyon, France
       year: 2024
+      maindescription: "Thesis: 'Nanofluidics with Soap Bubbles and Surfactants'"
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: M.E.
+        - Investigated various physical phenomena at interfaces using soap bubbles and surfactants
+        - Designed and built experimental setups for studying bubble transport phenomena
+        - Investigated electronic properties of surfactants at liquid/gas interfaces
+
+    - title: Master of Engineering
       institution: KyungHee University, South Korea
       year: 2020
+      department: Mechanical Engineering
       description:
-        - Description 1.
-        - Description 2.
-    - title: B.E.
+        - Research focus on droplet dynamics and impact phenomena on engineered surfaces
+        - Developed models for penetration dynamics of water droplets on Janus membrane
+
+    - title: Bachelor of Engineering
       institution: KyungHee University, South Korea
       year: 2018
+      department: Mechanical Engineering
       description:
-        - Description 1.
-        - Description 2.
+        - Specialization in fluid dynamics
+        - Undergraduate research on energy conversion from saline water
 
-- title: Experience
+- title: Research Experience
   type: time_table
   contents:
-    - title: Postdoctoral researcher
+    - title: Postdoctoral Researcher
       institution: Institut Lumière Matière, Université de Lyon, France
-      year: 2025 - Current
+      year: 2025 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
+        - Extending Ph.D. research on electro-driven bubble transport with tunable surfactant concentration
+        - Investigating electronic interactions of oligothiophene-based surfactants at liquid/gas interfaces
+        - Mentoring a master's student on experimental techniques and data analysis
 
-    - title: Research fellow
+    - title: Research Fellow
       institution: Inha University, South Korea
       year: 2021
       description:
-        - Description 1.
-        - Description 2.
+        - Characterized various properties of hydrogels
+        - Developed novel microfluidic devices for studying diffusioosmosis on superhydrophobic surfaces
 
-    - title: Research fellow
+    - title: Research Fellow
       institution: KyungHee University, South Korea
       year: 2020
+      description:
+        - Investigated drop impact dynamics on lubricated surfaces
+        - Designed and optimized experimental setups for high-speed imaging
+        - Analyzed complex fluid behavior using custom image processing algorithms
 
-- title: Honors and Awards
+- title: Publications
   type: time_table
   contents:
+    - year: 2025
+      items:
+        - "Bae C., et al. 'Reversing the electro-driven bubble transport by tuning surfactant concentration.' <i>In preparation</i>"
+        - "Bae C., et al. 'Electronic interactions of a quatertiophene-based surfactant at liquid/gas interface.' <i>Soft Matter</i>, Accepted"
+        - "Idriss H., Bae C., et al. 'Molecular assemblies of amphiphilic oligothiophenes at the air-water interface.' <i>Langmuir</i>, Accepted"
+    - year: 2024
+      items:
+        - "Bae C., Ko Y., Shin S., Lee C. 'A bouncing and rotating drop after oblique impact on Lubricant-Impregnated surfaces.' <i>Physics of Fluids</i>, 36(12), 2024"
+        - "Pati A., Ko Y., Bae C., Choi I., Heo Y., Lee C. 'Highly porous hydrogels for efficient solar water evaporation.' <i>Soft Matter</i>, 20(25), 4988-4997, 2024"
     - year: 2020
       items:
-        - Excellent Paper Award
-    - year: 2017
+        - "Bae C., Oh S., Han J., Nam Y., Lee C. 'Water penetration dynamics through a Janus mesh during drop impact.' <i>Soft Matter</i>, 16(26), 6072-6081, 2020"
+        - "Han J., Kim W., Bae C., Lee D., Shin S., Nam Y., Lee C. 'Contact time on curved superhydrophobic surfaces.' <i>Physical Review E</i>, 101(4), 043108, 2020"
+    - year: 2019
       items:
-        - Academic Scholarship
-    - year: 2009
-      items:
-        - Silver Prize in Physics,
+        - "Han J., Bae C., Chae S., Choi D., Lee S., Nam Y., Lee C. 'High-efficiency power generation in hyper-saline environment using conventional nanoporous membrane.' <i>Electrochimica Acta</i>, 319, 366-374, 2019"
 
-- title: Academic Interests
+- title: Skills
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Experimental Techniques
+      items: 
+        - High-speed imaging and analysis
+        - Microfluidics and nanofluidics
+        - Surface characterization (contact angle, surface tension measurement)
+        - Rheology and interfacial tensiometry
+    - title: Programming & Software
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Python, LaTeX
+        - Rhinoceros 3D, Adobe Illustrator, Inkscape
+        - Data analysis and visualization
+    - title: Fabrication
       items:
-        - Description 1.
-        - Description 2.
+        - Microfluidic device fabrication
+        - Soft lithography
+        - Surface functionalization and modification
 
-- title: Other Interests
+- title: Honors and Awards
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - title: Excellent Paper Award, KyungHee University
+      year: 2020
+    - title: Academic Excellence Scholarship
+      year: 2017
+    - title: Silver Prize in Korean Physics Olympiad
+      year: 2009
+
+- title: Teaching & Mentoring
+  type: year_list
+  contents:
+    - year: 2021-2024
+      items:
+        - Mentor for two Master's students on research projects
+    - year: 2019-2020
+      items:
+        - Research assistant
+        - Supervised undergraduate research projects
+
+- title: Professional Activities
+  type: nested_list
+  contents:
+    - title: Conference Presentations
+      items:
+        - Charged Matter 2025, Wien, Austria, 2025
+        - 15th European Foam Conference (EUFOAM), Dresden, Germany, 2024
+        - American Physical Society Division of Fluid Dynamics Meeting, Washington DC, 2023
+        - Journees Plenieres GDR MicroNanoFluidique, Lyon, France, 2023
+        - Congres Français de Mechanique, Nantes, France, 2022
+        - Journées de Physique Statistique, Paris, France, 2022
+        - The Korean BioChip Society, South Korea, 2021
+        - The 11th National Congress of Fluids Engineering, South Korea, 2020
+        - The Korean Society of Mechanical Engineering Fall Conference, South Korea, 2019
+        - The Korean Society of Mechanical Engineering Spring Conference, South Korea, 2019
+        - the 10th National Congress on Fluids Engineering, South Korea, 2018
+
+    - title: Academic Schools
+      items:
+        - Complex Motion in Fluids, Homerton College in Cambridge, UK, 2023
+        - International School of Soft Matter, Cargese, France, 2022
+        
+    - title: Professional Service
+      items:
+        - Reviewer for scientific journals (Physics of Fluids)
