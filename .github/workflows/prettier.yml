@@ -1,63 +1,41 @@
-name: Format with Prettier
+name: Prettier code formatter
 
 on:
-  push:
-    branches: [main, master]
   pull_request:
-    branches: [main, master]
+    branches:
+      - master
+      - main
+  push:
+    branches:
+      - master
+      - main
 
-# Add explicit permissions section
+# Explicit permissions to ensure GitHub Actions can push changes
 permissions:
   contents: write
 
 jobs:
-  prettier:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v4
-      - name: Install Prettier 💾
-        run: npm install --save-dev --save-exact prettier @shopify/prettier-plugin-liquid
-      - name: Prettier Check 🔎
-        id: prettier
-        run: npx prettier . --check
-        continue-on-error: true
-
-      - name: Run Prettier if check fails 💅
-        if: steps.prettier.outcome == 'failure'
-        run: npx prettier . --write
-
-      - name: Commit changes 📝
-        if: steps.prettier.outcome == 'failure'
-        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Fix code style issues with Prettier"
-          commit_user_name: "GitHub Actions"
-          commit_user_email: "actions@github.com"
+          node-version: latest
+          cache: npm
 
-      - name: Upload html diff ⬆️
-        if: steps.prettier.outcome == 'failure'
-        run: |
-          git diff -- . ':(exclude)package-lock.json' ':(exclude)package.json' > diff.txt
-          npm install -g diff2html-cli
-          diff2html -i file -s side -F diff.html -- diff.txt
+      - name: Install dependencies 📦
+        run: npm ci --prefer-offline
 
-      - name: Upload diff artifact 📤
-        if: steps.prettier.outcome == 'failure'
-        uses: actions/upload-artifact@v4
+      - name: Prettier and auto-commit
+        uses: creyD/prettier_action@v4.3
         with:
-          name: HTML Diff
-          path: diff.html
-          retention-days: 7
-
-      - name: Dispatch information to repository 🗣️
-        if: ${{ steps.prettier.outcome == 'failure' && github.event_name == 'pull_request' }}
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          event-type: prettier-failed-on-pr
-          client-payload: '{"pr_number": "${{ github.event.number }}", "artifact_url": "${{ steps.artifact-upload.outputs.artifact-url }}", "run_id": "${{ github.run_id }}"}'
+          commit_message: "Fix code formatting with Prettier"
+          prettier_options: "--write ."
+          github_token: ${{ secrets.GITHUB_TOKEN }}
