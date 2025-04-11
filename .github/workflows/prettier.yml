@@ -23,15 +23,19 @@ jobs:
         run: npm install --save-dev --save-exact prettier @shopify/prettier-plugin-liquid
       - name: Prettier Check 🔎
         id: prettier
-        run: npx prettier . --check || npx prettier . --write
-      - name: Commit and Push Fixes 🚀
-        if: ${{ failure() }}
+        run: npx prettier . --check
+        continue-on-error: true  # Allow the workflow to continue even if this step fails
+
+      - name: Fix and Commit 🚀
+        if: ${{ steps.prettier.outcome == 'failure' }}  # Only run if Prettier check failed
         run: |
+          npx prettier . --write
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add .
           git commit -m "Fix code style issues with Prettier"
           git push
+          
       - name: Upload html diff ⬆️
         id: artifact-upload
         if: ${{ failure() && steps.prettier.conclusion == 'failure' }}
