@@ -141,37 +141,37 @@ My primary research focuses on fluid dynamics at interfaces, such as superhydrop
   <div class="slide">
     <div class="slide-title">Rebound of a water drop from oil surface</div>
     <img
-      src="/assets/img/webcover/Rebound.gif"
+      src="assets/img/webcover/Rebound.gif"
       alt="Rebound"
       loading="eager"
-      onerror="this.onerror=null; this.src='/assets/img/webcover/Rebound.gif?t=' + new Date().getTime();"
+      onerror="this.onerror=null; this.src='assets/img/webcover/Rebound.gif?t=' + new Date().getTime();"
     />
   </div>
   <div class="slide">
     <div class="slide-title">Rotation of a water drop after bouncing</div>
     <img
-      src="/assets/img/webcover/Rotation.gif"
+      src="assets/img/webcover/Rotation.gif"
       alt="Rotation"
       loading="eager"
-      onerror="this.onerror=null; this.src='/assets/img/webcover/Rotation.gif?t=' + new Date().getTime();"
+      onerror="this.onerror=null; this.src='assets/img/webcover/Rotation.gif?t=' + new Date().getTime();"
     />
   </div>
   <div class="slide">
     <div class="slide-title">Reversal motion of a bubble with surfactant concentration</div>
     <img
-      src="/assets/img/webcover/bubble_video.gif"
+      src="assets/img/webcover/bubble_video.gif"
       alt="Bubble Video"
       loading="eager"
-      onerror="this.onerror=null; this.src='/assets/img/webcover/bubble_video.gif?t=' + new Date().getTime();"
+      onerror="this.onerror=null; this.src='assets/img/webcover/bubble_video.gif?t=' + new Date().getTime();"
     />
   </div>
   <div class="slide">
     <div class="slide-title">Multiple Bubble</div>
     <img
-      src="/assets/img/webcover/multiplebubble.gif"
+      src="assets/img/webcover/multiplebubble.gif"
       alt="Multiple Bubble"
       loading="eager"
-      onerror="this.onerror=null; this.src='/assets/img/webcover/multiplebubble.gif?t=' + new Date().getTime();"
+      onerror="this.onerror=null; this.src='assets/img/webcover/multiplebubble.gif?t=' + new Date().getTime();"
     />
   </div>
 </div>
