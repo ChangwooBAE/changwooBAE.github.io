@@ -148,13 +148,17 @@ layout: default
         {% for highlight in page.research_highlights %}
           <div class="slide">
             <div class="slide-title">{{ highlight.title }}</div>
-            {% assign highlight_image_path = highlight.image | prepend: 'assets/img/webcover/' %}
-            <img
-              src="{{ highlight_image_path }}"
-              alt="{{ highlight.alt }}"
-              loading="eager"
-              onerror="this.onerror=null; this.src='{{ highlight_image_path }}?t=' + new Date().getTime();"
-            >
+            {% if highlight.external_url %}
+              <img src="{{ highlight.external_url }}" alt="{{ highlight.alt }}" loading="eager">
+            {% else %}
+              {% assign highlight_image_path = highlight.image | prepend: 'assets/img/webcover/' %}
+              <img
+                src="{{ highlight_image_path | relative_url }}"
+                alt="{{ highlight.alt }}"
+                loading="eager"
+                onerror="this.onerror=null; this.src='{{ highlight_image_path | relative_url }}?t=' + new Date().getTime();"
+              >
+            {% endif %}
           </div>
         {% endfor %}
       </div>

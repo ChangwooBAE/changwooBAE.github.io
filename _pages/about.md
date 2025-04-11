@@ -29,15 +29,19 @@ latest_posts:
 research_highlights:
   - title: "Rebound of a water drop from oil surface"
     image: "Rebound.gif"
+    external_url: "https://media.githubusercontent.com/media/ChangwooBAE/changwooBAE.github.io/main/assets/img/webcover/Rebound.gif"
     alt: "Rebound"
   - title: "Rotation of a water drop after bouncing"
     image: "Rotation.gif"
+    external_url: "https://media.githubusercontent.com/media/ChangwooBAE/changwooBAE.github.io/main/assets/img/webcover/Rotation.gif"
     alt: "Rotation"
   - title: "Reversal motion of a bubble with surfactant concentration"
     image: "bubble_video.gif"
+    external_url: "https://media.githubusercontent.com/media/ChangwooBAE/changwooBAE.github.io/main/assets/img/webcover/bubble_video.gif"
     alt: "Bubble Video"
   - title: "Multiple Bubble"
     image: "multiplebubble.gif"
+    external_url: "https://media.githubusercontent.com/media/ChangwooBAE/changwooBAE.github.io/main/assets/img/webcover/multiplebubble.gif"
     alt: "Multiple Bubble"
 ---
 
