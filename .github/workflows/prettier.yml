@@ -34,6 +34,7 @@ jobs:
           git config --global user.email "actions@github.com"
           git add .
           git commit -m "Fix code style issues with Prettier"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
           
       - name: Upload html diff ⬆️
