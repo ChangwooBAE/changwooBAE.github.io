@@ -217,13 +217,13 @@ layout: default
     // Add placeholder image URLs
     const placeholders = [];
     const realSources = [];
-    
+
     // Store the real sources and set placeholders initially
     slides.forEach((slide, index) => {
       const img = slide.querySelector('img');
       realSources[index] = img.getAttribute('src');
       placeholders[index] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; // Transparent 1x1 gif
-      
+
       // Only keep the current slide loaded initially
       if (index !== 0) {
         img.setAttribute('data-src', realSources[index]);
@@ -235,7 +235,7 @@ layout: default
       // Hide all slides and unload non-visible GIFs
       slides.forEach((slide, i) => {
         slide.classList.remove('active');
-        
+
         // Unload non-visible slides to save memory
         if (i !== index) {
           const img = slide.querySelector('img');
@@ -258,7 +258,7 @@ layout: default
         // Just refresh the GIF if it's already loaded
         currentImg.src = currentImg.src.split('?')[0] + '?t=' + new Date().getTime();
       }
-      
+
       // Show current slide
       slides[index].classList.add('active');
     }
@@ -295,9 +295,9 @@ layout: default
       nextSlide();
       resetInterval();
     });
-    
+
     // Garbage collection hint when tab is not visible
-    document.addEventListener('visibilitychange', function() {
+    document.addEventListener('visibilitychange', function () {
       if (document.hidden) {
         // Unload all images except current when tab is not visible
         slides.forEach((slide, i) => {
