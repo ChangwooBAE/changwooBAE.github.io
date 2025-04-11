@@ -136,36 +136,55 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
-    <!-- Research Highlights Section -->
-    <h2>Research Highlights</h2>
+    {% if page.research_highlights %}
+      <div style="margin-top: 8rem"></div>
 
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
-      <!-- Full-width images with number and caption text -->
-      <div class="mySlides fade">
-        <div class="highlight-title">Rebound of a water drop from oil surface</div>
-        <img src="{{ '/assets/img/webcover/Rebound.gif' | relative_url }}" alt="Rebound">
+      <h2>Research Highlights</h2>
+      <div class="slideshow-container">
+        <!-- Navigation buttons -->
+        <button class="slide-nav prev" id="prevButton">❮</button>
+        <button class="slide-nav next" id="nextButton">❯</button>
+
+        {% for highlight in page.research_highlights %}
+          <div class="slide">
+            <div class="slide-title">{{ highlight.title }}</div>
+            {% assign highlight_image_path = highlight.image | prepend: 'assets/img/webcover/' %}
+            <img
+              src="{{ highlight_image_path }}"
+              alt="{{ highlight.alt }}"
+              loading="eager"
+              onerror="this.onerror=null; this.src='{{ highlight_image_path }}?t=' + new Date().getTime();"
+            >
+          </div>
+        {% endfor %}
       </div>
+    {% endif %}
 
-      <div class="mySlides fade">
-        <div class="highlight-title">Rotation of a water drop after bouncing</div>
-        <img src="{{ '/assets/img/webcover/Rotation.gif' | relative_url }}" alt="Rotation">
-      </div>
+    {% comment %}
+      <!-- News -->
+      {% if page.announcements and page.announcements.enabled %}
+        <h2>
+          <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+        </h2>
+        {% include news.liquid limit=true %}
+      {% endif %}
 
-      <div class="mySlides fade">
-        <div class="highlight-title">Reversal motion of a bubble with surfactant concentration</div>
-        <img src="{{ '/assets/img/webcover/bubble_video.gif' | relative_url }}" alt="Bubble Video">
-      </div>
+      <!-- Latest posts -->
+      {% if page.latest_posts and page.latest_posts.enabled %}
+        <h2>
+          <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+        </h2>
+        {% include latest_posts.liquid %}
+      {% endif %}
 
-      <div class="mySlides fade">
-        <div class="highlight-title">Multiple Bubble</div>
-        <img src="{{ '/assets/img/webcover/multiplebubble.gif' | relative_url }}" alt="Multiple Bubble">
-      </div>
-
-      <!-- Next and previous buttons -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
+      <!-- Selected papers -->
+      {% if page.selected_papers %}
+        <h2>
+          <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+        </h2>
+        {% include selected_papers.liquid %}
+      {% endif %}
+    {% endcomment %}
 
     <!-- Social -->
     {% if page.social %}
@@ -186,59 +205,111 @@ layout: default
   </article>
 </div>
 
-<!-- Script for slideshow -->
+<!-- Add slideshow script -->
 <script>
-  let slideIndex = 0;
-  let slideInterval;
+  document.addEventListener('DOMContentLoaded', function () {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
 
-  // Next/previous controls
-  function plusSlides(n) {
-    showSlides((slideIndex += n));
-    resetInterval();
-  }
+    // Add placeholder image URLs
+    const placeholders = [];
+    const realSources = [];
 
-  function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName('mySlides');
+    // Store the real sources and set placeholders initially
+    slides.forEach((slide, index) => {
+      const img = slide.querySelector('img');
+      realSources[index] = img.getAttribute('src');
+      placeholders[index] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; // Transparent 1x1 gif
 
-    if (!slides.length) return;
+      // Only keep the current slide loaded initially
+      if (index !== 0) {
+        img.setAttribute('data-src', realSources[index]);
+        img.src = placeholders[index];
+      }
+    });
 
-    if (n >= slides.length) {
-      slideIndex = 0;
+    function showSlide(index) {
+      // Hide all slides and unload non-visible GIFs
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+
+        // Unload non-visible slides to save memory
+        if (i !== index) {
+          const img = slide.querySelector('img');
+          // Save the real source in data-src and replace with placeholder
+          if (!img.getAttribute('data-src')) {
+            img.setAttribute('data-src', img.src);
+          }
+          img.src = placeholders[i];
+        }
+      });
+
+      // Show and load current slide
+      const currentImg = slides[index].querySelector('img');
+      // Load the real image for this slide
+      if (currentImg.getAttribute('data-src')) {
+        currentImg.src = currentImg.getAttribute('data-src') + '?t=' + new Date().getTime();
+        // No need to keep data-src anymore for current slide
+        currentImg.removeAttribute('data-src');
+      } else {
+        // Just refresh the GIF if it's already loaded
+        currentImg.src = currentImg.src.split('?')[0] + '?t=' + new Date().getTime();
+      }
+
+      // Show current slide
+      slides[index].classList.add('active');
     }
-    if (n < 0) {
-      slideIndex = slides.length - 1;
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
     }
 
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
     }
 
-    slides[slideIndex].style.display = 'block';
-  }
+    // Show first slide immediately
+    showSlide(0);
 
-  function startSlideShow() {
-    showSlides(slideIndex);
-    slideInterval = setInterval(function () {
-      slideIndex++;
-      showSlides(slideIndex);
-    }, 5000); // Change image every 5 seconds
-  }
+    // Change slide every 20 seconds
+    let slideInterval = setInterval(nextSlide, 20000);
 
-  function resetInterval() {
-    clearInterval(slideInterval);
-    startSlideShow();
-  }
-
-  // Pause slideshow when tab is not visible to save resources
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) {
+    // Reset interval when manually changing slides
+    function resetInterval() {
       clearInterval(slideInterval);
-    } else {
-      resetInterval();
+      slideInterval = setInterval(nextSlide, 20000);
     }
-  });
 
-  // Start the slideshow when the page loads
-  document.addEventListener('DOMContentLoaded', startSlideShow);
+    // Add event listeners to buttons
+    prevButton.addEventListener('click', function () {
+      prevSlide();
+      resetInterval();
+    });
+
+    nextButton.addEventListener('click', function () {
+      nextSlide();
+      resetInterval();
+    });
+
+    // Garbage collection hint when tab is not visible
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        // Unload all images except current when tab is not visible
+        slides.forEach((slide, i) => {
+          if (i !== currentSlide) {
+            const img = slide.querySelector('img');
+            if (!img.getAttribute('data-src')) {
+              img.setAttribute('data-src', img.src);
+            }
+            img.src = placeholders[i];
+          }
+        });
+      }
+    });
+  });
 </script>
