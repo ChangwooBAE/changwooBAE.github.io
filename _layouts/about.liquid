@@ -1,6 +1,105 @@
 ---
 layout: default
 ---
+
+<!-- Add slideshow styles -->
+<style>
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin: 2rem 0 4rem 0;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+  .slide img {
+    max-width: 100%;
+    max-height: 80%;
+    object-fit: contain;
+    margin-top: 1rem;
+    display: block;
+  }
+
+  .slide-title {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--global-theme-color);
+    text-align: center;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .slide {
+    animation: fadeOut 2s forwards;
+  }
+
+  .slide.active {
+    animation: fadeIn 2s forwards;
+  }
+
+  .slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    z-index: 10;
+  }
+
+  .slide-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .slide-nav.prev {
+    left: 20px;
+  }
+
+  .slide-nav.next {
+    right: 20px;
+  }
+</style>
+
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">
@@ -22,11 +121,9 @@ layout: default
           {% if page.profile.image_circular %}
             {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
           {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
+          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
           {%
             include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
             cache_bust=true
@@ -40,31 +137,55 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
-    {% comment %}
-      <!-- News -->
-      {% if page.announcements and page.announcements.enabled %}
-        <h2>
-          <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-        </h2>
-        {% include news.liquid limit=true %}
-      {% endif %}
 
-      <!-- Latest posts -->
-      {% if page.latest_posts and page.latest_posts.enabled %}
-        <h2>
-          <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-        </h2>
-        {% include latest_posts.liquid %}
-      {% endif %}
+    {% if page.research_highlights %}
+      <div style="margin-top: 8rem"></div>
 
-      <!-- Selected papers -->
-      {% if page.selected_papers %}
-        <h2>
-          <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-        </h2>
-        {% include selected_papers.liquid %}
-      {% endif %}
-    {% endcomment %}
+      <h2>Research Highlights</h2>
+      <div class="slideshow-container">
+        
+        <!-- Navigation buttons -->
+        <button class="slide-nav prev" id="prevButton">❮</button>
+        <button class="slide-nav next" id="nextButton">❯</button>
+
+        {% for highlight in page.research_highlights %}
+          <div class="slide">
+            <div class="slide-title">{{ highlight.title }}</div>
+            {% assign highlight_image_path = highlight.image | prepend: 'assets/img/webcover/' %}
+            <img
+              src="{{ highlight_image_path }}"
+              alt="{{ highlight.alt }}"
+              loading="eager"
+              onerror="this.onerror=null; this.src='{{ highlight_image_path }}?t=' + new Date().getTime();"
+            />
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% comment %} <!-- News -->
+    {% if page.announcements and page.announcements.enabled %}
+      <h2>
+        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+      </h2>
+      {% include news.liquid limit=true %}
+    {% endif %}
+
+    <!-- Latest posts -->
+    {% if page.latest_posts and page.latest_posts.enabled %}
+      <h2>
+        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+      </h2>
+      {% include latest_posts.liquid %}
+    {% endif %}
+
+    <!-- Selected papers -->
+    {% if page.selected_papers %}
+      <h2>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+      </h2>
+      {% include selected_papers.liquid %}
+    {% endif %} {% endcomment %}
 
     <!-- Social -->
     {% if page.social %}
@@ -84,3 +205,61 @@ layout: default
     {% endif %}
   </article>
 </div>
+
+<!-- Add slideshow script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+
+    function showSlide(index) {
+      // Hide all slides
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+        const img = slide.querySelector("img");
+        // Force GIF to restart by updating src with timestamp
+        const currentSrc = img.src.split("?")[0];
+        img.src = currentSrc + "?t=" + new Date().getTime();
+      });
+
+      // Show current slide
+      slides[index].classList.add("active");
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    // Show first slide immediately
+    showSlide(0);
+
+    // Change slide every 20 seconds
+    let slideInterval = setInterval(nextSlide, 20000);
+
+    // Reset interval when manually changing slides
+    function resetInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, 20000);
+    }
+
+    // Add event listeners to buttons
+    prevButton.addEventListener("click", function () {
+      prevSlide();
+      resetInterval();
+    });
+
+    nextButton.addEventListener("click", function () {
+      nextSlide();
+      resetInterval();
+    });
+  });
+</script>
