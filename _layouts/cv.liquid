@@ -28,17 +28,17 @@ layout: default
 
     <style>
       .cv-container {
-        font-family: "Times New Roman", Times, serif;
+        font-family: 'Times New Roman', Times, serif;
         line-height: 1.5;
         max-width: 850px;
         margin: 0 auto;
       }
-      
+
       .cv-section {
         margin-bottom: 1.5rem;
         page-break-inside: avoid;
       }
-      
+
       .cv-section-title {
         border-bottom: 1px solid #ddd;
         font-weight: bold;
@@ -46,58 +46,58 @@ layout: default
         color: #4b6cb7;
         font-size: 1.3rem;
       }
-      
+
       .cv-item {
         margin-bottom: 1rem;
       }
-      
+
       .cv-item-title {
         font-weight: bold;
         margin-bottom: 0.2rem;
       }
-      
+
       .cv-item-details {
         display: flex;
         justify-content: space-between;
         margin-bottom: 0.3rem;
       }
-      
+
       .cv-item-institution {
         font-style: italic;
       }
-      
+
       .cv-item-year {
         white-space: nowrap;
       }
-      
+
       .cv-item-description {
         margin-left: 1rem;
         margin-top: 0.3rem;
       }
-      
+
       .cv-item-description ul {
         margin: 0;
         padding-left: 1rem;
       }
-      
+
       .cv-item-description li {
         margin-bottom: 0.2rem;
       }
-      
+
       .cv-publications-year {
         font-weight: bold;
         margin-top: 0.5rem;
         margin-bottom: 0.3rem;
       }
-      
+
       .cv-publications-list {
         margin-left: 1rem;
       }
-      
+
       .cv-publications-item {
         margin-bottom: 0.5rem;
       }
-      
+
       @media print {
         body {
           font-size: 12pt;
@@ -119,53 +119,53 @@ layout: default
         {% for entry in site.data.cv %}
           <div class="cv-section">
             <div class="cv-section-title">{{ entry.title }}</div>
-            
-            {% if entry.type == "list" %}
-              {% if entry.title == "Honors and Awards" %}
+
+            {% if entry.type == 'list' %}
+              {% if entry.title == 'Honors and Awards' %}
                 <ul class="cv-item-description">
-                {% for content in entry.contents %}
-                  <li>{{ content.title }} ({{ content.year }})</li>
-                {% endfor %}
+                  {% for content in entry.contents %}
+                    <li>{{ content.title }} ({{ content.year }})</li>
+                  {% endfor %}
                 </ul>
               {% else %}
                 <ul class="cv-item-description">
-                {% for content in entry.contents %}
-                  <li>{{ content }}</li>
-                {% endfor %}
+                  {% for content in entry.contents %}
+                    <li>{{ content }}</li>
+                  {% endfor %}
                 </ul>
               {% endif %}
-            
-            {% elsif entry.type == "map" %}
+
+            {% elsif entry.type == 'map' %}
               <table class="cv-map-table">
-              {% for content in entry.contents %}
-                <tr>
-                  <td class="cv-map-title" style="padding-right: 1.5rem; vertical-align: top; font-weight: bold;">{{ content.name }}</td>
-                  <td class="cv-map-value">{{ content.value }}</td>
-                </tr>
-              {% endfor %}
+                {% for content in entry.contents %}
+                  <tr>
+                    <td class="cv-map-title" style="padding-right: 1.5rem; vertical-align: top; font-weight: bold;">{{ content.name }}</td>
+                    <td class="cv-map-value">{{ content.value }}</td>
+                  </tr>
+                {% endfor %}
               </table>
-            
-            {% elsif entry.type == "nested_list" %}
+
+            {% elsif entry.type == 'nested_list' %}
               {% for content in entry.contents %}
                 <div class="cv-item">
                   <div class="cv-item-title">{{ content.title }}</div>
                   <ul class="cv-item-description">
-                  {% for item in content.items %}
-                    <li>{{ item }}</li>
-                  {% endfor %}
+                    {% for item in content.items %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
                   </ul>
                 </div>
               {% endfor %}
-            
-            {% elsif entry.type == "time_table" %}
-              {% if entry.title == "Publications" %}
+
+            {% elsif entry.type == 'time_table' %}
+              {% if entry.title == 'Publications' %}
                 {% for content in entry.contents %}
                   <div class="cv-item">
                     <div class="cv-publications-year">{{ content.year }}</div>
                     <ul class="cv-publications-list">
-                    {% for item in content.items %}
-                      <li class="cv-publications-item">{{ item }}</li>
-                    {% endfor %}
+                      {% for item in content.items %}
+                        <li class="cv-publications-item">{{ item }}</li>
+                      {% endfor %}
                     </ul>
                   </div>
                 {% endfor %}
@@ -174,33 +174,36 @@ layout: default
                   <div class="cv-item">
                     <div class="cv-item-title">{{ content.title }}</div>
                     <div class="cv-item-details">
-                      <span class="cv-item-institution">{{ content.institution }}{% if content.department %}, {{ content.department }}{% endif %}</span>
+                      <span class="cv-item-institution">
+                        {{- content.institution -}}
+                        {%- if content.department %}, {{ content.department }}{% endif -%}
+                      </span>
                       <span class="cv-item-year">{{ content.year }}</span>
                     </div>
-                    
+
                     {% if content.maindescription %}
                       <div class="cv-item-maindescription">{{ content.maindescription }}</div>
                     {% endif %}
-                    
+
                     {% if content.description %}
                       <ul class="cv-item-description">
-                      {% for point in content.description %}
-                        <li>{{ point }}</li>
-                      {% endfor %}
+                        {% for point in content.description %}
+                          <li>{{ point }}</li>
+                        {% endfor %}
                       </ul>
                     {% endif %}
                   </div>
                 {% endfor %}
               {% endif %}
-            
-            {% elsif entry.type == "year_list" %}
+
+            {% elsif entry.type == 'year_list' %}
               {% for content in entry.contents %}
                 <div class="cv-item">
                   <div class="cv-item-year">{{ content.year }}</div>
                   <ul class="cv-item-description">
-                  {% for item in content.items %}
-                    <li>{{ item }}</li>
-                  {% endfor %}
+                    {% for item in content.items %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
                   </ul>
                 </div>
               {% endfor %}

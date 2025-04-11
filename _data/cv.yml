@@ -89,7 +89,7 @@
   type: nested_list
   contents:
     - title: Experimental Techniques
-      items: 
+      items:
         - High-speed imaging and analysis
         - Microfluidics and nanofluidics
         - Surface characterization (contact angle, surface tension measurement)
@@ -147,7 +147,7 @@
       items:
         - Complex Motion in Fluids, Homerton College in Cambridge, UK, 2023
         - International School of Soft Matter, Cargese, France, 2022
-        
+
     - title: Professional Service
       items:
         - Reviewer for scientific journals (Physics of Fluids)
