@@ -26,6 +26,7 @@
       institution: KyungHee University, South Korea
       year: 2020
       department: Mechanical Engineering
+      maindescription: "Thesis: 'Penetration Dynamics of Water Droplet on Janus Mesh'"
       description:
         - Research focus on droplet dynamics and impact phenomena on engineered surfaces
         - Developed models for penetration dynamics of water droplets on Janus membrane
@@ -107,9 +108,9 @@
 - title: Honors and Awards
   type: list
   contents:
-    - title: Excellent Paper Award, KyungHee University
+    - title: Excellent Paper Award, The Korean Society of Mechanical Engineers
       year: 2020
-    - title: Academic Excellence Scholarship
+    - title: Academic Excellence Scholarship, KyungHee University
       year: 2017
     - title: Silver Prize in Korean Physics Olympiad
       year: 2009
