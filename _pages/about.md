@@ -47,7 +47,6 @@ I received my Bachelor's and Master's degrees of Mechanical Engineer in [Soft In
 
 My primary research focuses on fluid dynamics at interfaces, such as superhydrophilic, superhydrophobic, surfactant laden interfaces, etc.
 
-
 <!-- <div style="margin-top: 8rem"></div>
 
 ## Research Highlights
@@ -92,4 +91,3 @@ My primary research focuses on fluid dynamics at interfaces, such as superhydrop
     />
   </div>
 </div> -->
-

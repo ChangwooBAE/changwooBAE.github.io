@@ -619,7 +619,7 @@ third_party_libraries:
 
 jekyll_get_json:
   - data: resume
-    json: false  # explicitly disable resume.json lookup
+    json: false # explicitly disable resume.json lookup
 
 # jsonresume:
 #   - basics

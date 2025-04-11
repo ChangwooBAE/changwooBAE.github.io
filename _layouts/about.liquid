@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <!-- Add slideshow styles -->
 <style>
   .slideshow-container {
@@ -137,13 +136,11 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
-
     {% if page.research_highlights %}
       <div style="margin-top: 8rem"></div>
 
       <h2>Research Highlights</h2>
       <div class="slideshow-container">
-        
         <!-- Navigation buttons -->
         <button class="slide-nav prev" id="prevButton">❮</button>
         <button class="slide-nav next" id="nextButton">❯</button>
@@ -157,35 +154,37 @@ layout: default
               alt="{{ highlight.alt }}"
               loading="eager"
               onerror="this.onerror=null; this.src='{{ highlight_image_path }}?t=' + new Date().getTime();"
-            />
+            >
           </div>
         {% endfor %}
       </div>
     {% endif %}
 
-    {% comment %} <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
+    {% comment %}
+      <!-- News -->
+      {% if page.announcements and page.announcements.enabled %}
+        <h2>
+          <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+        </h2>
+        {% include news.liquid limit=true %}
+      {% endif %}
 
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
+      <!-- Latest posts -->
+      {% if page.latest_posts and page.latest_posts.enabled %}
+        <h2>
+          <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+        </h2>
+        {% include latest_posts.liquid %}
+      {% endif %}
 
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %} {% endcomment %}
+      <!-- Selected papers -->
+      {% if page.selected_papers %}
+        <h2>
+          <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+        </h2>
+        {% include selected_papers.liquid %}
+      {% endif %}
+    {% endcomment %}
 
     <!-- Social -->
     {% if page.social %}
@@ -208,25 +207,25 @@ layout: default
 
 <!-- Add slideshow script -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', function () {
     let currentSlide = 0;
-    const slides = document.querySelectorAll(".slide");
+    const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
-    const prevButton = document.getElementById("prevButton");
-    const nextButton = document.getElementById("nextButton");
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
 
     function showSlide(index) {
       // Hide all slides
       slides.forEach((slide) => {
-        slide.classList.remove("active");
-        const img = slide.querySelector("img");
+        slide.classList.remove('active');
+        const img = slide.querySelector('img');
         // Force GIF to restart by updating src with timestamp
-        const currentSrc = img.src.split("?")[0];
-        img.src = currentSrc + "?t=" + new Date().getTime();
+        const currentSrc = img.src.split('?')[0];
+        img.src = currentSrc + '?t=' + new Date().getTime();
       });
 
       // Show current slide
-      slides[index].classList.add("active");
+      slides[index].classList.add('active');
     }
 
     function nextSlide() {
@@ -252,12 +251,12 @@ layout: default
     }
 
     // Add event listeners to buttons
-    prevButton.addEventListener("click", function () {
+    prevButton.addEventListener('click', function () {
       prevSlide();
       resetInterval();
     });
 
-    nextButton.addEventListener("click", function () {
+    nextButton.addEventListener('click', function () {
       nextSlide();
       resetInterval();
     });

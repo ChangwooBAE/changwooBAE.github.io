@@ -34,7 +34,6 @@
         - Description 1.
         - Description 2.
 
-
 - title: Experience
   type: time_table
   contents:
@@ -59,7 +58,6 @@
     - title: Research fellow
       institution: KyungHee University, South Korea
       year: 2020
-
 
 - title: Honors and Awards
   type: time_table
