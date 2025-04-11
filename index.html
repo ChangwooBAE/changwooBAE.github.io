@@ -8,16 +8,51 @@
     const prevButton = document.getElementById('prevButton');
     const nextButton = document.getElementById('nextButton');
 
+    // Add placeholder image URLs
+    const placeholders = [];
+    const realSources = [];
+    
+    // Store the real sources and set placeholders initially
+    slides.forEach((slide, index) => {
+      const img = slide.querySelector('img');
+      realSources[index] = img.getAttribute('src');
+      placeholders[index] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; // Transparent 1x1 gif
+      
+      // Only keep the current slide loaded initially
+      if (index !== 0) {
+        img.setAttribute('data-src', realSources[index]);
+        img.src = placeholders[index];
+      }
+    });
+
     function showSlide(index) {
-      // Hide all slides
-      slides.forEach((slide) => {
+      // Hide all slides and unload non-visible GIFs
+      slides.forEach((slide, i) => {
         slide.classList.remove('active');
-        const img = slide.querySelector('img');
-        // Force GIF to restart by updating src with timestamp
-        const currentSrc = img.src.split('?')[0];
-        img.src = currentSrc + '?t=' + new Date().getTime();
+        
+        // Unload non-visible slides to save memory
+        if (i !== index) {
+          const img = slide.querySelector('img');
+          // Save the real source in data-src and replace with placeholder
+          if (!img.getAttribute('data-src')) {
+            img.setAttribute('data-src', img.src);
+          }
+          img.src = placeholders[i];
+        }
       });
 
+      // Show and load current slide
+      const currentImg = slides[index].querySelector('img');
+      // Load the real image for this slide
+      if (currentImg.getAttribute('data-src')) {
+        currentImg.src = currentImg.getAttribute('data-src') + '?t=' + new Date().getTime();
+        // No need to keep data-src anymore for current slide
+        currentImg.removeAttribute('data-src');
+      } else {
+        // Just refresh the GIF if it's already loaded
+        currentImg.src = currentImg.src.split('?')[0] + '?t=' + new Date().getTime();
+      }
+      
       // Show current slide
       slides[index].classList.add('active');
     }
@@ -53,6 +88,22 @@
     nextButton.addEventListener('click', function () {
       nextSlide();
       resetInterval();
+    });
+    
+    // Garbage collection hint when tab is not visible
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        // Unload all images except current when tab is not visible
+        slides.forEach((slide, i) => {
+          if (i !== currentSlide) {
+            const img = slide.querySelector('img');
+            if (!img.getAttribute('data-src')) {
+              img.setAttribute('data-src', img.src);
+            }
+            img.src = placeholders[i];
+          }
+        });
+      }
     });
   });
 </script> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © 2025 Changwoo BAE </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script defer src="/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CK5HBBQS1"></script> <script>
