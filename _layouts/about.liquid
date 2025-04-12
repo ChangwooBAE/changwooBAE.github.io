@@ -148,7 +148,12 @@ layout: default
         {% for highlight in page.research_highlights %}
           <div class="slide">
             <div class="slide-title">{{ highlight.title }}</div>
-            <img src="{{ highlight.external_url }}" alt="{{ highlight.alt }}" loading="eager">
+            {% assign highlight_image_path = highlight.image | prepend: 'assets/img/webcover/' %}
+            <img 
+              src="{{ highlight_image_path | relative_url }}" 
+              alt="{{ highlight.alt }}" 
+              loading="eager"
+            >
           </div>
         {% endfor %}
       </div>
