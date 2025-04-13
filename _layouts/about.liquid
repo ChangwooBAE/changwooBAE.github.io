@@ -99,6 +99,9 @@ layout: default
   }
 </style>
 
+
+
+
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">
@@ -159,15 +162,17 @@ layout: default
       </div>
     {% endif %}
 
-    {% comment %}
+{% comment %} 
       <!-- News -->
       {% if page.announcements and page.announcements.enabled %}
         <h2>
           <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
         </h2>
         {% include news.liquid limit=true %}
-      {% endif %}
+      {% endif %} 
+{% endcomment %}
 
+    {% comment %}
       <!-- Latest posts -->
       {% if page.latest_posts and page.latest_posts.enabled %}
         <h2>
