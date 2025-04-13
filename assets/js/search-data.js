@@ -23,9 +23,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-surface-tension",
+        },{id: "post-about-surface-tension",
       
-        title: "Surface tension",
+        title: "About surface tension",
       
       description: "How far do you understand surface tension?",
       section: "Posts",
