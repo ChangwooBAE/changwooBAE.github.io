@@ -1,15 +1,15 @@
 {% comment %}
-A reusable component for displaying post images
-Usage:
-  {% include post_image.liquid 
-    filename="image.jpg" 
-    alt="Image description"
-    caption="Optional caption text"
-    max_width="500px" 
-    width="70%" 
-    centered="true"
-    figure_num="1"
-  %}
+  A reusable component for displaying post images
+  Usage:
+    {% include post_image.liquid
+      filename="image.jpg"
+      alt="Image description"
+      caption="Optional caption text"
+      max_width="500px"
+      width="70%"
+      centered="true"
+      figure_num="1"
+    %}
 {% endcomment %}
 
 {% if page.image_path %}
@@ -39,7 +39,10 @@ Usage:
   </div>
 </div>
 {% if include.caption %}
-<div class="caption {% if include.centered %}text-center{% endif %}">
-  {% if include.figure_num %}<strong>Fig. {{ include.figure_num }}.</strong> {% endif %}{{ include.caption }}
-</div>
-{% endif %} 
+  <div class="caption {% if include.centered %}text-center{% endif %}">
+    {% if include.figure_num -%}
+      <strong>Fig. {{ include.figure_num }}.</strong>
+    {% endif -%}
+    {{- include.caption }}
+  </div>
+{% endif %}
