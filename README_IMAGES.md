@@ -33,12 +33,14 @@ If you prefer to add images manually, use this template:
 <div class="row mt-3">
   <div class="col-sm mt-3 mt-md-0">
     <figure>
-      <img src="assets/img/post/YYYY-MM-DD-post-name/image.jpg" 
-           class="img-fluid rounded z-depth-1" 
-           style="max-width: 500px;" 
-           width="70%" 
-           loading="eager"
-           alt="Image description">
+      <img
+        src="assets/img/post/YYYY-MM-DD-post-name/image.jpg"
+        class="img-fluid rounded z-depth-1"
+        style="max-width: 500px;"
+        width="70%"
+        loading="eager"
+        alt="Image description"
+      >
     </figure>
   </div>
 </div>
@@ -71,12 +73,14 @@ Then use the image path in your references:
 <div class="row mt-3">
   <div class="col-sm mt-3 mt-md-0">
     <figure>
-      <img src="{{ img_path | relative_url }}/image.jpg" 
-           class="img-fluid rounded z-depth-1" 
-           style="max-width: 500px;" 
-           width="70%" 
-           loading="eager"
-           alt="Image description">
+      <img
+        src="{{ img_path | relative_url }}/image.jpg"
+        class="img-fluid rounded z-depth-1"
+        style="max-width: 500px;"
+        width="70%"
+        loading="eager"
+        alt="Image description"
+      >
     </figure>
   </div>
 </div>
