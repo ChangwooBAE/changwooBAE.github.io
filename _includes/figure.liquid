@@ -1,3 +1,7 @@
+{% comment %}
+A reusable component for displaying figures
+{% endcomment %}
+
 {% assign img_path = include.path | remove: '.jpg' | remove: '.jpeg' | remove: '.png' | remove: '.tiff' | remove: '.gif' %}
 {% assign parts = include.path | split: '.' %}
 {% assign ext = parts.last %}
@@ -30,7 +34,7 @@
       >
     {% endif %}
     <img
-      src="{% if include.url %}{{ include.url }}{% elsif include.cache_bust %}{{ include.path | relative_url | bust_file_cache }}{% else %}{{ include.path | relative_url }}{% endif %}"
+      src="{{ include.path | relative_url }}"
       {% if include.class %}
         class="{{ include.class }}"
       {% endif %}
@@ -62,19 +66,17 @@
       {% endif %}
       {% if include.alt %}
         alt="{{ include.alt }}"
+      {% else %}
+        alt=""
       {% endif %}
       {% if include.title %}
         title="{{ include.title }}"
       {% endif %}
-      {% if include.zoomable %}
-        data-zoomable
-      {% endif %}
       {% if include.loading %}
         loading="{{ include.loading }}"
-      {% elsif site.lazy_loading_images %}
+      {% else %}
         loading="lazy"
       {% endif %}
-      onerror="this.onerror=null; $('.responsive-img-srcset').remove();"
     >
   </picture>
 
