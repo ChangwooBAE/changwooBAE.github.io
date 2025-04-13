@@ -11,7 +11,7 @@ thumbnail: assets/img/post/2025-04-13-surface_tension/waterstrider.jpg
 
 ## -- Origin of Surface Tension
 
-Although the term surface tension first appears in middle school science textbooks under the Korean education curriculum, it is not explored again until university-level fluid mechanics or engineering courses. Yet, the surface tension
+The term surface tension first appears in textbooks during middle or high school and is familiar even to those with little interest in science. Everyone knows surface tension, but not everyone understands surface tension.
 
 {% include post_image.liquid
   filename="tension_molecule.jpg"
