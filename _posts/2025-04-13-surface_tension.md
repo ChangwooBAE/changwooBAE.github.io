@@ -11,10 +11,10 @@ thumbnail: assets/img/post/2025-04-13-surface_tension/waterstrider.jpg
 
 ## s
 
-{% include post_image.liquid 
-  filename="tension_molecule.jpg" 
-  alt="Surface tension diagram" 
-  max_width="500px" 
+{% include post_image.liquid
+  filename="tension_molecule.jpg"
+  alt="Surface tension diagram"
+  max_width="500px"
   width="70%"
   loading="eager"
   centered="true"

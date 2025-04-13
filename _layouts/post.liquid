@@ -7,8 +7,8 @@ layout: default
 {% assign url_beginning = page.url | slice: 0, 6 %}
 
 {% comment %}
-Automatically generate an image path if not provided in the frontmatter
-Format: assets/img/post/YYYY-MM-DD-title
+  Automatically generate an image path if not provided in the frontmatter
+  Format: assets/img/post/YYYY-MM-DD-title
 {% endcomment %}
 {% if page.image_path %}
   {% assign image_path = page.image_path %}

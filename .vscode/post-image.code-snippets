@@ -9,8 +9,8 @@
       "</div>",
       "<div class=\"caption\">",
       "    ${5:Caption text}",
-      "</div>"
+      "</div>",
     ],
-    "description": "Insert a post image with caption"
-  }
-} 
+    "description": "Insert a post image with caption",
+  },
+}
