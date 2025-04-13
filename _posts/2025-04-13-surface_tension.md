@@ -11,7 +11,6 @@ thumbnail: assets/img/post/2025-04-13-surface_tension/waterstrider.jpg
 
 ## -- Origin of Surface Tension
 
-
 {% include post_image.liquid
   filename="waterstrider.jpg"
   alt="Surface tension diagram"
@@ -22,7 +21,6 @@ thumbnail: assets/img/post/2025-04-13-surface_tension/waterstrider.jpg
   figure_num="1"
   caption="An image of a water strider utilizing surface tension to walk on water. "
 %}
-
 
 The term surface tension first appears in textbooks during middle or high school and is familiar even to those with little interest in science. Everyone knows surface tension, but not everyone understands surface tension.
 
