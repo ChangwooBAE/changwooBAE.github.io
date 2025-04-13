@@ -27,7 +27,7 @@ ninja.data = [{
       
         title: "Surface tension",
       
-      description: "Are you sure you really understand surface tension?",
+      description: "How far do you understand surface tension?",
       section: "Posts",
       handler: () => {
         
