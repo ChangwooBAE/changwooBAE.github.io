@@ -8,5 +8,4 @@ categories: science
 thumbnail: assets/img/post/2025-04-13-surface_tension/waterstrider.jpg
 ---
 
-
 ## s
