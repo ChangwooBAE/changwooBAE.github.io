@@ -13,27 +13,38 @@
 {% endcomment %}
 
 {% if page.image_path %}
-  {% assign full_path = page.image_path | append: "/" | append: include.filename %}
+  {% assign full_path = page.image_path | append: '/' | append: include.filename %}
 {% else %}
-  {% assign post_id = page.date | date: "%Y-%m-%d" | append: "-" | append: page.title | slugify %}
-  {% assign full_path = "assets/img/post/" | append: post_id | append: "/" | append: include.filename %}
+  {% assign post_id = page.date | date: '%Y-%m-%d' | append: '-' | append: page.title | slugify %}
+  {% assign full_path = 'assets/img/post/' | append: post_id | append: '/' | append: include.filename %}
 {% endif %}
 
-{% assign loading_value = include.loading | default: "lazy" %}
-{% assign class_value = include.class | default: "img-fluid rounded z-depth-1" %}
+{% assign loading_value = include.loading | default: 'lazy' %}
+{% assign class_value = include.class | default: 'img-fluid rounded z-depth-1' %}
 
 <!-- Debug: {{ full_path }} -->
 
 <div class="row mt-3">
   <div class="col-sm mt-3 mt-md-0 {% if include.centered %}text-center{% endif %}">
     <figure>
-      <img src="{{ full_path | relative_url }}"
+      <img
+        src="{{ full_path | relative_url }}"
         class="{{ class_value }}"
-        {% if include.width %}width="{{ include.width }}"{% else %}width="100%"{% endif %}
-        {% if include.max-width %}style="max-width: {{ include.max-width }};"{% endif %}
-        {% if include.alt %}alt="{{ include.alt }}"{% else %}alt=""{% endif %}
+        {% if include.width %}
+          width="{{ include.width }}"
+        {% else %}
+          width="100%"
+        {% endif %}
+        {% if include['max-width'] %}
+          style="max-width: {{ include.max-width }};"
+        {% endif %}
+        {% if include.alt %}
+          alt="{{ include.alt }}"
+        {% else %}
+          alt=""
+        {% endif %}
         loading="{{ loading_value }}"
-      />
+      >
     </figure>
   </div>
 </div>
