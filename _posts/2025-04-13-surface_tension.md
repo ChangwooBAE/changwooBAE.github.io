@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Surface tension
+title: About surface tension
 date: 2025-04-13
 description: How far do you understand surface tension?
 tags: knowledge
@@ -9,17 +9,17 @@ image_path: assets/img/post/2025-04-13-surface_tension
 thumbnail: assets/img/post/2025-04-13-surface_tension/waterstrider.jpg
 ---
 
-## -- Origin of Surface Tension
+The term surface tension first appears in textbooks during middle or high school and is familiar even to those with little interest in science. One of the examples to explain surface tension frequently shown in the textbooks is a water strider. As shown in `Fig. 1`, 
 
 {% include post_image.liquid
   filename="waterstrider.jpg"
   alt="Surface tension diagram"
-  max_width="500px"
-  width="70%"
+  max_width="100px"
+  width="30%"
   loading="eager"
   centered="true"
   figure_num="1"
-  caption="An image of a water strider utilizing surface tension to walk on water. "
+  caption="A water strider standing on a water interface thanks to surface tension of water. Although its weight creates an indentation, the surface tension is sufficient to sustain the insect without breaking the interface."
 %}
 
 The term surface tension first appears in textbooks during middle or high school and is familiar even to those with little interest in science. Everyone knows surface tension, but not everyone understands surface tension.

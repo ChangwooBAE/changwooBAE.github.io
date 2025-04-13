@@ -51,7 +51,7 @@
 {% if include.caption %}
   <div class="caption {% if include.centered %}text-center{% endif %}">
     {% if include.figure_num -%}
-      <strong>Fig. {{ include.figure_num }}.</strong>
+      <strong style="color: var(--global-theme-color)">Fig. {{ include.figure_num }}.</strong>
     {% endif -%}
     {{- include.caption }}
   </div>
