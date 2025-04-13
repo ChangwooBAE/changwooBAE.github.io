@@ -32,7 +32,14 @@ If you prefer to add images manually, use this template:
 ```liquid
 <div class="row mt-3">
   <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/post/YYYY-MM-DD-post-name/image.jpg" class="img-fluid rounded z-depth-1" max-width="500px" width="70%" %}
+    <figure>
+      <img src="assets/img/post/YYYY-MM-DD-post-name/image.jpg" 
+           class="img-fluid rounded z-depth-1" 
+           style="max-width: 500px;" 
+           width="70%" 
+           loading="eager"
+           alt="Image description">
+    </figure>
   </div>
 </div>
 <div class="caption">Your caption text here</div>
@@ -56,14 +63,22 @@ image_path: assets/img/post/YYYY-MM-DD-post-name
 ---
 ```
 
-Then use `{{ page.image_path }}` in your path references:
+Then use the image path in your references:
 
 ```liquid
-{% assign image_path = 'assets/img/post/YYYY-MM-DD-post-name' %}
+{% assign img_path = page.image_path %}
 
 <div class="row mt-3">
   <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="{{ image_path }}/image.jpg" class="img-fluid rounded z-depth-1" max-width="500px" width="70%" %}
+    <figure>
+      <img src="{{ img_path | relative_url }}/image.jpg" 
+           class="img-fluid rounded z-depth-1" 
+           style="max-width: 500px;" 
+           width="70%" 
+           loading="eager"
+           alt="Image description">
+    </figure>
   </div>
 </div>
+<div class="caption">Your caption text here</div>
 ```
