@@ -1,0 +1,16 @@
+{
+  "Post Image": {
+    "prefix": "post-image",
+    "body": [
+      "<div class=\"row mt-3\">",
+      "    <div class=\"col-sm mt-3 mt-md-0\">",
+      "        {% include figure.liquid loading=\"eager\" path=\"${1:${TM_DIRECTORY/^.*\\/(.+)$/$1\\/}/}${2:image.jpg}\" class=\"img-fluid rounded z-depth-1\" max-width=\"${3:500px}\" width=\"${4:70%}\" %}",
+      "    </div>",
+      "</div>",
+      "<div class=\"caption\">",
+      "    ${5:Caption text}",
+      "</div>"
+    ],
+    "description": "Insert a post image with caption"
+  }
+} 
