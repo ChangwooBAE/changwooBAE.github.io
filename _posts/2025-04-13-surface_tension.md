@@ -13,7 +13,7 @@ The term surface tension first appears in textbooks during middle or high school
 
 {% include post_image.liquid
   filename="waterstrider.jpg"
-  alt="Surface tension diagram"
+  alt="Water strider"
   max_width="100px"
   width="30%"
   loading="eager"
@@ -22,11 +22,10 @@ The term surface tension first appears in textbooks during middle or high school
   caption="A water strider standing on a water interface thanks to surface tension of water. Although its weight creates an indentation, the surface tension is sufficient to sustain the insect without breaking the interface."
 %}
 
-The term surface tension first appears in textbooks during middle or high school and is familiar even to those with little interest in science. Everyone knows surface tension, but not everyone understands surface tension.
 
 {% include post_image.liquid
   filename="tension_molecule.jpg"
-  alt="Surface tension diagram"
+  alt="Surface tension"
   max_width="500px"
   width="70%"
   loading="eager"
