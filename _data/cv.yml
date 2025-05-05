@@ -92,16 +92,17 @@
       items:
         - High-speed imaging and analysis
         - Microfluidics and nanofluidics
-        - Surface characterization (contact angle, surface tension measurement)
-        - Rheology and interfacial tensiometry
+        - Data analysis and visualization
+        - Surface characterization (mechanical, electrical, optical, etc.)
+        - Tensiometry, Zeta potentiometry, Ellipsometry, Electrometry, etc.
     - title: Programming & Software
       items:
         - Python, LaTeX
         - Rhinoceros 3D, Adobe Illustrator, Inkscape
-        - Data analysis and visualization
+        
     - title: Fabrication
       items:
-        - Microfluidic device fabrication
+        - Microfluidic device fabrication (PDMS, NOA, Hydrogel)
         - Soft lithography
         - Surface functionalization and modification
 
