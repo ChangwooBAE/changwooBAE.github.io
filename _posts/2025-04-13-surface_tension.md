@@ -22,15 +22,11 @@ thumbnail: assets/img/post/2025-04-13-surface_tension/waterstrider.jpg
   caption="A water strider standing on a water interface thanks to surface tension of water. Although its weight creates an indentation, the surface tension is sufficient to sustain the insect without breaking the interface."
 %}
 
-Have you ever seen water striders floating on a puddle after raining? Water striders can be found in most of the continents, and their main food source is other insects that fall onto water struggling to escape from water surface. Oh wait, other insects cannot easily escape or move on water surface, while it is a playground for water striders? Why are these water striders able to walk on water surface while some insects or humans are not? 
+Have you ever seen water striders floating on a puddle after raining? Water striders can be found in most of the continents, and their main food source is other insects that fall onto water struggling to escape from water surface. Oh wait, other insects cannot easily escape or move on water surface, while it is a playground for water striders? Why are these water striders able to walk on water surface while some insects or humans are not?
 
+Water strider is one of the example to introduce `surface tension` in science textbook for middle or high school students. One of the other good example of surface tension is a floating metalic needle on water surface. Although any metal (except for 3 metals in 1st group: Lithium, Sodium, Potassium. Even if they are denser than water, they would just "explode" instead of "floating".) is denser than water, it can stay on water surface thanks to surface tension of water.
 
-
-Water strider is one of the example to introduce `surface tension` in science textbook for middle or high school students. One of the other good example of surface tension is a floating metalic needle on water surface. Although any metal (except for 3 metals in 1st group: Lithium, Sodium, Potassium. Even if they are denser than water, they would just "explode" instead of "floating".) is denser than water, it can stay on water surface thanks to surface tension of water. 
-
-
-
-Actually, there are some animals besides water striders able to kick water 
+Actually, there are some animals besides water striders able to kick water
 
 <div class="video-wrapper">
   <div class="video-container">
@@ -62,12 +58,6 @@ Actually, there are some animals besides water striders able to kick water
 }
 </style>
 
-
-
-
-
-
-
 {% include post_image.liquid
   filename="tension_molecule.jpg"
   alt="Surface tension"
@@ -81,8 +71,6 @@ Actually, there are some animals besides water striders able to kick water
 
 Molecules in a liquid state attract each other with forces stronger than thermal agitation. In the bulk of the liquid, these interactions are isotropic, meaning a molecule experiences equal forces from all neighboring molecules, resulting in a net force of zero. However, a molecule at the surface loses half of its cohesive interactions as depicted in `Fig. 2` To compensate for this loss, the liquid surface adjusts its shape to minimize surface area, which is the fundamental cause of surface tension.
 
-
 When a liquid molecule is positioned at the surface, it experiences an unfavorable energy state. Within the liquid, if the cohesion energy per molecule is U, a molecule at the surface lacks approximately half of this energy, or $$U/2$$. Surface tension quantifies this energy deficit per unit area. Given the molecular size a and its exposed surface area $$a^2$$, the surface tension can be estimated as $$\gamma=U/2a^2$$.
 
-
-In my favorite book, 
+In my favorite book,
