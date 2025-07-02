@@ -24,7 +24,7 @@ thumbnail: assets/img/post/2025-04-13-surface_tension/waterstrider.jpg
 
 Have you ever seen water striders floating on a puddle after raining? Water striders can be found in most of the continents, and their main food source is other insects that fall onto water struggling to escape from water surface. If other insects cannot easily escape or move on water surface, how is it a playground for water striders? Why are these water striders able to walk on water surface while some insects or humans are not?
 
-There are many things to say, 
+There are many things to say,
 
 Water strider is one of the example to introduce `surface tension` in science textbook for middle or high school students. One of the other good example of surface tension is a floating metalic needle on water surface. Although any metal (except for 3 metals in 1st group: Lithium, Sodium, Potassium. Even if they are denser than water, they would just "explode" instead of "floating".) is denser than water, it can stay on water surface thanks to surface tension of water.
 
