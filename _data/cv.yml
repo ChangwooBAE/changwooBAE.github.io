@@ -312,4 +312,4 @@ cv:
 
 design:
   # classic, ember, engineeringclassic, engineeringresumes, harvard, ink, moderncv, opal, sb2nov
-  theme: engineeringclassic
+  theme: sb2nov
