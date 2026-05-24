@@ -1,62 +1,74 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.3/schema.json
 cv:
   name: Changwoo Bae
   label: Fluid dynamicist & Physicist
-  email: changwoo.bae@espci.fr
   location: Paris, France
-  image: "assets/img/my_photo.png"
-  # summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
-
-  address:
-    street: 10 Rue Vauquelin
-    city: Paris
-    postalCode: 75005
-    countryCode: France
+  email: changwoo.bae@espci.fr
+  website: https://changwoobae.com
+  
+  social_networks:
+    - network: Google Scholar
+      username: rcpSxmwAAAAJ
 
   sections:
-    Education:
+    welcome_to_RenderCV!:
+      - '[RenderCV](https://rendercv.com) is a Typst-based CV framework designed for academics and engineers, with Markdown syntax support.'
+      - Each section title is arbitrary. Each section contains a list of entries, and there are 7 different entry types to choose from.
+      
+    education:
       - institution: Institut Lumière Matière, Université de Lyon
         location: Lyon, France
         url: https://ilm.univ-lyon1.fr/?&lang=2
         area: Physics, Material
-        studyType: PhD
+        degree: PhD
         start_date: 2021
         end_date: 2024
-        maindescription: "Thesis: 'Nanofluidics with Soap Bubbles and Surfactants'"
         highlights:
-          - Investigated various physical phenomena at interfaces using soap bubbles and surfactants
-          - Designed and built experimental setups for studying bubble transport phenomena
-          - Investigated electronic properties of surfactants at liquid/gas interfaces
-
-      - institution: KyungHee University
-        location: Yongin-si, South Korea
-        area: Mechanical Engineering
-        studyType: Master of Engineering
-        start_date: 2018
-        end_date: 2020
-        maindescription: "Thesis: 'Penetration Dynamics of Water Droplet on Janus Mesh'"
-        highlights:
-          - Research focus on droplet dynamics and impact phenomena on engineered surfaces
-          - Developed models for penetration dynamics of water droplets on Janus membrane
+          - "Thesis: 'Nanofluidics with Soap Bubbles and Surfactants'" 
+          - "Advisor: Dr. [Anne-Laure Biance](https://sites.google.com/view/biance/home-page)"
+          - Investigated the motion of an air bubble surrounded by ionic surfactants under an electric field.
+          - Derived a physical model for the bubble motion.
+          - Stuided colloid filtration/seiving using bubble-in-capillary configuration.
+          - Investigated "electronic" surfactants' pi-stacking signature at water/air interface using Langmuir Trough and Ellipsometer combined setup.
+          - Built a setup to measure conductivity of pi-stacked surfactants and graphene flakes at water/air interface.
 
       - institution: KyungHee University
         location: Yongin, South Korea
         area: Mechanical Engineering
-        studyType: Bachelor of Engineering
+        degree: M.E.
+        start_date: 2018
+        end_date: 2020
+        maindescription: 
+        highlights:
+          - "Thesis: 'Penetration Dynamics of Water Droplet on Janus Mesh'"
+          - "Advisor: Prof. [Choongyeop Lee](https://ifluid.khu.ac.kr/home)"
+          - Investigated on drop impact dynamics on engineered surfaces such as superhydrophobic(SHPo) surfaces, Lubricant-infused surfaces(LIS), Janus membrane, etc.
+          - Developed models for penetration dynamics of water droplets on Janus membrane.
+          - Studied a contact time reudction on a curved superhydrophobic surface during drop impact.
+          - Demonstrated rebound and rotation phenomena on a inclined LIS.
+
+
+      - institution: KyungHee University
+        location: Yongin, South Korea
+        area: Mechanical Engineering
+        degree: B.E.
         start_date: 2010
         end_date: 2018
         highlights:
-          - Specialization in fluid dynamics
-          - Undergraduate research on energy conversion from saline water
+          - "Advisor: Prof. [Choongyeop Lee](https://ifluid.khu.ac.kr/home)"
+          - Studied free energy harvesting from salt concentration gradient.
+          - Demonstrated an ionic diode effect from asymmetric contact areas.
 
-    Experience:
+
+    experience:
       - company: SIMM, ESPCI Paris-PSL Univeristy
         position: Postdoctoral Researcher
         location: Paris, France
         start_date: 2025
-        end_date: Current
+        end_date: present
         highlights:
-          - Investigating liquid-triboelectrification
-          - Investigating polyer adsorption dynamics
+          - Investigating liquid-triboelectrification.
+          - Investigating polyer adsorption dynamics.
 
       - company: Institut Lumière Matière, Université de Lyon
         position: Postdoctoral Researcher
@@ -64,9 +76,10 @@ cv:
         start_date: 2025
         end_date: 2025
         highlights:
-          - Extending Ph.D. research on electro-driven bubble transport with tunable surfactant concentration
-          - Investigating electronic interactions of oligothiophene-based surfactants at liquid/gas interfaces
-          - Mentoring a master's student on experimental techniques and data analysis
+          - Extended Ph.D. research on electro-driven bubble transport with tunable surfactant concentration.
+          - Investigated electronic interactions of oligothiophene-based surfactants at liquid/gas interfaces.
+          - Mentored a master's student on experimental techniques and data analysis.
+
 
       - company: Inha University
         position: Research Fellow
@@ -74,81 +87,233 @@ cv:
         start_date: 2021
         end_date: 2021
         highlights:
-          - Characterizing various properties of hydrogels
-          - Developing novel microfluidic devices for studying diffusioosmosis on superhydrophobic surfaces
+          - Characterized various properties of hydrogels.
+          - Developed novel microfluidic devices for studying diffusioosmosis on superhydrophobic surfaces.
 
       - company: KyungHee University
         position: Research Fellow
         location: Yongin, Korea
         start_date: 2020
         end_date: 2020
+        highlights:
+          - Studied diffusioosmosis/phoresis on superhydrophobic channel.
 
-    Awards:
-      - title: Excellent Paper Award
+
+################################################################
+    publications:
+    
+      - title: Reversing the electro-driven bubble transport by tuning surfactant concentration
+      
+        authors:
+          - '***Changwoo Bae***'
+          - Menghua Zhao
+          - Christophe Ybert
+          - Anne-Laure Biance
+        date: In preparation
+
+
+      - title: Electronic interactions of a quatertiophene-based surfactant at the liquid/gas interface
+        authors:
+          - '***Changwoo Bae***'
+          - Kamatham Narayanaswamy
+          - Hisham Idriss
+          - Ludivine Poyac
+          - Indraneel Sen
+          - Sébastien Richeter
+          - Sébastien Clément
+          - Anne-Laure Biance
+          - Samuel Albert
+          - Oriane Bonhomme 
+        doi: 10.1039/D5SM00122F
+        url: https://doi.org/10.1039/D5SM00122F
+        journal: Soft Matter
+        date: 2025
+
+
+      - title: Molecular Assemblies of Amphiphilic Oligothiophenes at the Air--Water Interface
+        authors:
+          - Hisham Idriss
+          - Samuel Albert
+          - '***Changwoo Bae***'
+          - Ludivine Poyac
+          - Philippe Gerbier
+          - Oriane Bonhomme 
+          - Joséphine Lai-Kee-Him
+          - Aurélie Ancelin
+          - Sébastien Richeter
+          - Indraneel Sen
+          - Karl Leo
+          - Anne-Laure Biance
+          - Sébastien Clément
+        doi: 10.1021/acs.langmuir.5c01129
+        url: https://doi.org/10.1021/acs.langmuir.5c01129
+        journal: Langmuir
+        date: 2025
+
+
+      - title: A bouncing and rotating drop after oblique impact on Lubricant-Impregnated surfaces
+        authors:
+          - '***Changwoo Bae***'
+          - Young-Su Ko
+          - Seungwon Shin
+          - Choongyeop Lee
+        doi: 10.1063/5.0239361
+        url: https://doi.org/10.1063/5.0239361
+        journal: Physics of Fluids
+        date: 2024
+
+
+      - title: Highly porous hydrogels for efficient solar water evaporation
+        authors:
+          - Akash Ranjan Pati
+          - Young-Su Ko
+          - '***Changwoo Bae***'
+          - Inhee Choi
+          - Yun Jung Heo
+          - Choongyeop Lee
+        doi: 10.1039/D4SM00388H
+        url: https://doi.org/10.1039/D4SM00388H
+        journal: Soft Matter
+        date: 2024
+
+
+      - title: Water penetration dynamics through a Janus mesh during drop impact
+        authors:
+          - '***Changwoo Bae***'
+          - Seungtae Oh
+          - Jeonghoon Han
+          - Youngsuk Nam
+          - Choongyeop Lee
+        doi: 10.1039/D0SM00567C
+        url: https://doi.org/10.1039/D0SM00567C
+        journal: Soft Matter
         date: 2020
-        awarder: The Korean Society of Mechanical Engineers
 
-      - title: Academic Excellence Scholarship
-        date: 2017
-        awarder: KyungHee University
 
-      - title: Silver Prize in Korean Physics Olympiad
-        date: 2009
-        awarder: Korea
+      - title: Contact time on curved superhydrophobic surfaces
+        authors:
+          - Jeonghoon Han
+          - Wonjung Kim
+          - '***Changwoo Bae***'
+          - Dongwook Lee
+          - Seungwon Shin
+          - Choongyeop Lee
+          - Youngsuk Nam
+        doi: 10.1103/PhysRevE.101.043108
+        url: https://doi.org/10.1103/PhysRevE.101.043108
+        journal: Physical Review E
+        date: 2020
 
-    Publications:
-      type: bibtex
 
-    Skills:
-      - name: Experimental Techniques
-        keywords: "High-speed imaging, Microfluidics, Data analysis, Surface characterization, Tensiometry"
+      - title: High-efficiency power generation in hyper-saline environment using conventional nanoporous membrane
+        authors:
+          - Jeonghoon Han
+          - '***Changwoo Bae***'
+          - Songhwa Chae
+          - Dukhyun Choi
+          - Sangmin Lee
+          - Youngsuk Nam
+          - Choongyeop Lee
+        doi: 10.1016/j.electacta.2019.07.005
+        url: https://doi.org/10.1016/j.electacta.2019.07.005
+        journal: Electrochimica Acta
+        date: 2019
 
-      - name: Programming & Software
-        keywords: "Python, LaTeX, Rhinoceros 3D, Adobe Illustrator, Inkscape"
+################################################################
 
-      - name: Fabrication
-        keywords: "Soft lithography, Surface functionalization"
-
-    Languages:
-      - name: English
-        summary: "Fluent"
-
-      - name: Korean
-        summary: "Native speaker"
-
-    Interests:
-      - name: Complex physical and physico-chemical interfacial phenomena
-        icon: fa-solid fa-tag
-        keywords: "Physics, Chemistry, Hydrodynamics, Thermodynamics, Electrokinetics"
-
-    Teaching & Mentoring:
-      - year: 2021–2024
-        items:
-          - Mentor for three Master's students
-      - year: 2019–2020
-        items:
-          - Research assistant
 
     Conference Presentations:
-      items:
-        - <u>Charged Matter 2025</u>, Wien, Austria, 2025
-        - <u>15th European Foam Conference (EUFOAM)</u>, Dresden, Germany, 2024
-        - <u>APS Division of Fluid Dynamics Meeting</u>, Washington DC, 2023
-        - <u>Journees Plenieres GDR MicroNanoFluidique</u>, Lyon, France, 2023
-        - <u>Congres Français de Mechanique</u>, Nantes, France, 2022
-        - <u>Journées de Physique Statistique</u>, Paris, France, 2022
-        - <u>The Korean BioChip Society</u>, South Korea, 2021
-        - <u>The 11th National Congress of Fluids Engineering</u>, South Korea, 2020
-        - <u>The Korean Society of Mechanical Engineering Fall Conference</u>, South Korea, 2019
-        - <u>The Korean Society of Mechanical Engineering Spring Conference</u>, South Korea, 2019
-        - <u>the 10th National Congress on Fluids Engineering</u>, South Korea, 2018
+      - name: Charged Matter 2025
+        date: 2025
+      - name: 15th European Foam Conference (EUFOAM)
+        date: 2024
+      - name: APS Division of Fluid Dynamics Meeting
+        date: 2023
+      - name: Journees Plenieres GDR MicroNanoFluidique
+        date: 2023
+      - name: Congres Français de Mechanique
+        date: 2022
+      - name: Journées de Physique Statistique
+        date: 2022
+      - name: The Korean BioChip Society
+        date: 2021
+      - name: The 11th National Congress of Fluids Engineering
+        date: 2020
+      - name: The Korean Society of Mechanical Engineering Fall Conference
+        date: 2019
+      - name: The Korean Society of Mechanical Engineering Spring Conference
+        date: 2019
+      - name: The 10th National Congress on Fluids Engineering
+        date: 2018
 
-    Academic Schools:
-      items:
-        - Complex Motion in Fluids, Homerton College, Cambridge, UK, 2023
-        - International School of Soft Matter, Cargèse, France, 2022
 
-    Professional Service:
-      items:
-        - Reviewer for Physics of Fluids
-        - Reviewer for Microfluidics and Nanofluidics
+    Invited Presentations:
+      - name: Sciences et Ingénierie de la Matière Molle, ESPCI 
+        date: 2025 Jul
+      - name: '[Institut de Physique de Rennes (IPR)](https://ipr.univ-rennes.fr/evenements/seminaire-dmm-changwoo-bae-ilm-lyon)'
+        date: 2025 Jan
+
+
+    skills:
+      - label: Experimental Techniques
+        details: High-speed imaging, Microfluidics, Surface coating, Tensiometry, Spectroscopy ellipsometry, Atomic Force Microscopy
+
+      - label: Programming & Software
+        details: Python, LaTeX, Rhinoceros 3D, Adobe Illustrator, Inkscape
+
+      - label: Fabrication
+        details: Soft lithography, Surface functionalization
+
+
+    Teaching & Mentoring:
+      - name: Mentor for three Master's students
+        start_date: 2021
+        end_date: 2024
+
+      - name: Research assistant
+        start_date: 2019
+        end_date: 2020
+
+
+
+    extracurricular_activities:
+      - bullet: Complex Motion in Fluids, Homerton College, Cambridge, UK, 2023
+      - bullet: International School of Soft Matter, Cargèse, France, 2022
+
+    Professional Activities:
+      - bullet: Reviewer for Physics of Fluids
+      - bullet: Reviewer for Microfluidics and Nanofluidics
+
+
+    Languages:
+      - name: English, Korean
+
+
+    Awards:
+      - name: Excellent Paper Award
+        date: 2020
+        summary: The Korean Society of Mechanical Engineers
+        
+      - name: Academic Excellence Scholarship
+        date: 2017
+        summary: KyungHee University
+
+      - name: Silver Prize in Korean Physics Olympiad
+        date: 2009
+        summary: Korea
+
+
+    # numbered_entries:
+    #   - number: This is a numbered entry.
+    #   - number: This is another numbered entry.
+    #   - number: This is the third numbered entry.
+
+
+    # reversed_numbered_entries:
+    #   - reversed_number: This is a reversed numbered entry.
+    #   - reversed_number: This is another reversed numbered entry.
+    #   - reversed_number: This is the third reversed numbered entry.
+
+
+
+  sort_entries: none
