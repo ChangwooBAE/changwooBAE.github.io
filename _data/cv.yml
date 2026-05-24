@@ -11,10 +11,6 @@ cv:
       username: rcpSxmwAAAAJ
 
   sections:
-    welcome_to_RenderCV!:
-      - '[RenderCV](https://rendercv.com) is a Typst-based CV framework designed for academics and engineers, with Markdown syntax support.'
-      - Each section title is arbitrary. Each section contains a list of entries, and there are 7 different entry types to choose from.
-      
     education:
       - institution: Institut Lumière Matière, Université de Lyon
         location: Lyon, France
@@ -315,4 +311,5 @@ cv:
     #   - reversed_number: This is the third reversed numbered entry.
 
 design:
-  theme: harvard
+  # classic, ember, engineeringclassic, engineeringresumes, harvard, ink, moderncv, opal, sb2nov
+  theme: engineeringclassic
