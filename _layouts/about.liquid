@@ -1,6 +1,91 @@
 ---
 layout: default
 ---
+
+<!-- Add slideshow styles CSS -->
+<style>
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin: 2rem 0 4rem 0;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-top: 2rem;
+  }
+
+  .slide.active {
+    display: flex;
+  }
+
+  .slide-title {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--global-theme-color);
+    text-align: center;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .slide img,
+  .slide video {
+    max-width: 100%;
+    max-height: 80%;
+    object-fit: contain;
+    margin-top: 1rem;
+    display: block;
+  }
+
+  .slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    z-index: 10;
+  }
+
+  .slide-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .slide-nav.prev {
+    left: 20px;
+  }
+  .slide-nav.next {
+    right: 20px;
+  }
+
+  /* give vspace for text */
+  .intro-text {
+    padding-top: 3rem;
+  }
+
+  /* give vspace for my picture */
+  .profile-offset {
+    margin-top: 4rem;
+  }
+</style>
+
+
+
+
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">
@@ -64,6 +149,46 @@ layout: default
       {% include selected_papers.liquid %}
     {% endif %}
 
+
+    <!-- Research Highlights -->
+    {% if page.research_highlights %}
+      <div style="margin-top: 8rem"></div>
+
+      <h2>Research Highlights</h2>
+
+      <div class="slideshow-container">
+        <button class="slide-nav prev" id="prevButton">❮</button>
+        <button class="slide-nav next" id="nextButton">❯</button>
+
+        {% for highlight in page.research_highlights %}
+          <div class="slide {% if forloop.first %}active{% endif %}">
+            <div class="slide-title">{{ highlight.title }}</div>
+
+            {% assign media_path = highlight.image | prepend: 'assets/img/webcover/' %}
+
+            {% if highlight.image contains '.mp4' %}
+              <video
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              >
+                <source src="{{ media_path | relative_url }}" type="video/mp4">
+              </video>
+            {% else %}
+              <img
+                src="{{ media_path | relative_url }}"
+                alt="{{ highlight.alt }}"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+
+
     <!-- Social -->
     {% if page.social %}
       <div class="social">
@@ -73,8 +198,81 @@ layout: default
       </div>
     {% endif %}
 
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
-    {% endif %}
+
+
   </article>
 </div>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+
+    let current = 0;
+    let autoplayTimer = null;
+
+    function getVideo(slide) {
+      return slide.querySelector('video');
+    }
+
+    function pauseAllVideos() {
+      slides.forEach((slide) => {
+        const video = getVideo(slide);
+
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    }
+
+    function show(index) {
+      // remove active from all slides
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+      });
+
+      // pause all videos
+      pauseAllVideos();
+
+      // activate current slide
+      const activeSlide = slides[index];
+      activeSlide.classList.add('active');
+
+      // play current video if exists
+      const video = getVideo(activeSlide);
+
+      if (video) {
+        video.play().catch(() => {});
+      }
+
+      // IMPORTANT: clear previous timer FIRST
+      clearTimeout(autoplayTimer);
+
+      // fixed 10-second autoplay
+      autoplayTimer = setTimeout(() => {
+        next();
+      }, 10000);
+    }
+
+    function next() {
+      current = (current + 1) % slides.length;
+      show(current);
+    }
+
+    function prev() {
+      current = (current - 1 + slides.length) % slides.length;
+      show(current);
+    }
+
+    nextButton.addEventListener('click', next);
+    prevButton.addEventListener('click', prev);
+
+    // start slideshow
+    show(current);
+  });
+</script>
