@@ -124,6 +124,12 @@
   }
 }
 
+.post-content {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .featured-posts {
   a {
     color: var(--global-text-color-light);
