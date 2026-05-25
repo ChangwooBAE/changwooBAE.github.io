@@ -9,6 +9,8 @@ image_path: assets/img/post/2026-05-15-walking_on_water
 thumbnail: assets/img/post/2026-05-15-walking_on_water/waterstrider.jpg
 ---
 
+
+
 ## Walking on water?
 
 Have you ever seen water striders floating effortlessly on a puddle after the rain? Found on almost every continent, these insects primarily feed on other bugs that fall onto the water and struggle to escape. For most insects, the water's surface is like a swamp—once trapped, it is nearly impossible to move or escape. Yet, for the water strider, it is a free-roaming playground. Why is it that the water strider can "walk on water" while other insects or humans cannot?
