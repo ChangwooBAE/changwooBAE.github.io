@@ -10,10 +10,10 @@
       {% endif %}
       {% if entry.url %}
         <strong
-          ><a href="{{ entry.url }}" target="_blank">{{ entry.name }}</a></strong
+          ><a href="{{ entry.url }}" target="_blank">{{ entry.bullet }}</a></strong
         >
       {% else %}
-        <strong>{{ entry.name }}</strong>
+        <strong>{{ entry.bullet }}</strong>
       {% endif %}
 
       {% if entry.issuer %}

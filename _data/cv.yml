@@ -11,10 +11,9 @@ cv:
       username: rcpSxmwAAAAJ
 
   sections:
-    education:
+    Education:
       - institution: Institut Lumière Matière, Université de Lyon
         location: Lyon, France
-        url: https://ilm.univ-lyon1.fr/?&lang=2
         area: Physics, Material
         degree: PhD
         start_date: 2021
@@ -56,7 +55,7 @@ cv:
           - Demonstrated an ionic diode effect from asymmetric contact areas.
 
 
-    experience:
+    Experience:
       - company: SIMM, ESPCI Paris-PSL Univeristy
         position: Postdoctoral Researcher
         location: Paris, France
@@ -96,7 +95,7 @@ cv:
 
 
 ################################################################
-    publications:
+    Publications:
     
       - title: Reversing the electro-driven bubble transport by tuning surfactant concentration
       
@@ -218,7 +217,7 @@ cv:
 ################################################################
 
 
-    Conference Presentations:
+    Conference Talks:
       - name: Charged Matter 2025
         date: 2025
       - name: 15th European Foam Conference (EUFOAM)
@@ -243,14 +242,15 @@ cv:
         date: 2018
 
 
-    Invited Presentations:
+    Invited Talks:
       - name: Sciences et Ingénierie de la Matière Molle, ESPCI 
         date: 2025 Jul
-      - name: '[Institut de Physique de Rennes (IPR)](https://ipr.univ-rennes.fr/evenements/seminaire-dmm-changwoo-bae-ilm-lyon)'
+      - name: Institut de Physique de Rennes (IPR)
         date: 2025 Jan
+        url: https://ipr.univ-rennes.fr/evenements/seminaire-dmm-changwoo-bae-ilm-lyon
 
 
-    skills:
+    Skills:
       - label: Experimental Techniques
         details: High-speed imaging, Microfluidics, Surface coating, Tensiometry, Spectroscopy ellipsometry, Atomic Force Microscopy
 
@@ -259,6 +259,9 @@ cv:
 
       - label: Fabrication
         details: Soft lithography, Surface functionalization
+
+      - label: Expertise
+        details: Hydrodynamics, Thermodynamics, Electrokinetics, Interfacial physics
 
 
     Teaching & Mentoring:
@@ -272,9 +275,12 @@ cv:
 
 
 
-    extracurricular_activities:
-      - bullet: Complex Motion in Fluids, Homerton College, Cambridge, UK, 2023
-      - bullet: International School of Soft Matter, Cargèse, France, 2022
+    Extracurricular Activities:
+      - name: Complex Motion in Fluids, Homerton College, Cambridge, UK
+        date: 2023
+
+      - name: International School of Soft Matter, Cargèse, France
+        date: 2022
 
     Professional Activities:
       - bullet: Reviewer for Physics of Fluids
